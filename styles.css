@@ -1,3 +1,9 @@
+:root {
+  --main-color: #343945; /* CSS değişkeni tanımlama */
+  --secondary-color: #5395db;
+  --main-gradient: linear-gradient(135deg, #343945, #5395db85);
+}
+
 body {
   background-color: #040404;
   color: white;
@@ -14,14 +20,177 @@ body {
   background-size: cover;
   margin: 0;
 }
-h1, h2, h3{
-    font-family: 'Tilt Neon', cursive;
+h1,
+h2,
+h3 {
+  font-family: "Tilt Neon", cursive;
 }
+/* header styles */
 header {
   font-size: 2rem;
   text-align: center;
-
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
+header span {
+  color: #5395db;
+}
+
+.intro-text-first {
+  animation: introTextAnimation 0.55s ease forwards;
+  opacity: 0;
+}
+.intro-text-second {
+  animation: introTextAnimation 0.55s 0.55s ease forwards;
+  opacity: 0;
+}
+.intro-text-third {
+  animation: introTextAnimation 0.55s 1.1s ease forwards;
+  opacity: 0;
+}
+
+/* header styles end*/
+
+/* about text styles */
+
+#about-text-container {
+  display: none;
+  width: 70%;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.container-visible {
+  animation: container-in 0.55s ease forwards;
+}
+
+.container-unvisible {
+  animation: texts-out 0.55s ease forwards;
+}
+.start-paragraphs-unvisible {
+  display: none;
+}
+.to-visible {
+  animation: text-in 0.55 0.75s ease forwards;
+}
+
+/* about text styles end*/
+
+/* starter buttons styles */
+button {
+  background: var(--main-gradient);
+  color: white;
+  font-size: 1.2rem;
+  padding: 1rem 4rem 1rem 4rem;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.5s ease;
+  box-shadow: 0px 5px 5px 0px var(--main-color);
+}
+.button-visible {
+  opacity: 0;
+  animation: introTextAnimation 0.55s ease 1.65s forwards;
+}
+
+.button-unvisible {
+  animation: button-out 0.65s ease forwards;
+}
+
+.button-start-unvisible {
+  display: block;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* starter buttons styles end */
+
+/* ul styles */
+
+ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 800px;
+  list-style: none;
+  gap: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  overflow: hidden;
+}
+
+.planet-list-unvisible {
+  height: 0;
+}
+.planet-list-visible {
+  animation: planet-list-in 1s ease-out forwards;
+}
+
+li {
+  text-align: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: fit-content;
+  width: 11rem;
+  background-color: #353a46cc;
+  border-radius: 10px;
+  transition: all ease 0.55s;
+  overflow: hidden;
+  cursor: pointer;
+}
+.planet-button {
+  display: none;
+}
+.planet-button-visible {
+  display: flex;
+  animation: list-items-in 0.55s ease forwards;
+}
+
+.image-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+img {
+  width: 8rem;
+  height: 8rem;
+  transform: translate3d(50%, 50%, 0);
+  transition: all ease 0.55s;
+  --g1: repeating-linear-gradient(90deg, transparent 0 25%, var(--c) 0 50%)
+    repeat-x;
+  --g2: repeating-linear-gradient(180deg, transparent 0 25%, var(--c) 0 50%)
+    repeat-y;
+  background: var(--g1) var(--p, 25%) 0%, var(--g2) 0 var(--p, 25%),
+    var(--g1) var(--p, 25%) 100%, var(--g2) 100% var(--p, 25%);
+  background-size: 200% 3px, 3px 200%;
+  padding: 8px;
+}
+
+#saturn img {
+  transform: translate3d(30%, 30%, 0);
+}
+
+li:hover #saturn img {
+  transform: translate3d(0, 0, 0);
+}
+
+li:hover img {
+  --p: 75%;
+  --c: white;
+  transform: translate3d(0, 0, 0);
+  margin-bottom: 10px;
+}
+li:hover {
+  background-color: #5395db85;
+}
+li:hover .image-container {
+  justify-content: center;
+}
+
+/* ul styles end */
 
 .overlay {
   position: absolute;
@@ -56,7 +225,7 @@ header {
   width: 50vw;
   height: 60%;
   overflow-y: scroll;
-  background-color: rgb(52,57,69);
+  background-color: #343945;
   animation: modal-opening 0.55s ease forwards;
   transform-origin: center center;
   border-radius: 10px;
@@ -64,7 +233,6 @@ header {
   padding: 3rem;
   scroll-behavior: smooth;
 }
-
 
 .modal-container {
   display: flex;
@@ -79,58 +247,58 @@ header {
   padding: 0;
 }
 
-.modal-container p{
-    line-height: 1.5;
-    text-align: justify;
-    font-size: 1rem;
-    margin-bottom: 4rem;
-    transition: all ease-in;
+.modal-container p {
+  line-height: 1.5;
+  text-align: justify;
+  font-size: 1rem;
+  margin-bottom: 4rem;
+  transition: all ease-in;
 }
 
-.modal-container .close-button{
-    position: absolute;
-    padding-right: 1rem;
-    right: 1rem;
-    top: 0.3rem;
-    font-weight: 300;
-    cursor: pointer;
+.modal-container .close-button {
+  position: absolute;
+  padding-right: 1rem;
+  right: 1rem;
+  top: 0.3rem;
+  font-weight: 300;
+  cursor: pointer;
 }
 
-.modal-container .see-info{
-    align-self: end;
-    background-color: transparent;
-    color: white;
-    box-shadow: none;
-    font-weight: 300;
-    font-size: 0.8rem;
-    cursor: pointer;
+.modal-container .see-info {
+  align-self: end;
+  background-color: transparent;
+  color: white;
+  box-shadow: none;
+  font-weight: 300;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
-.modal-container .close-info{
-    align-self: flex-end;
-    background-color: transparent;
-    color: white;
-    box-shadow: none;
-    font-weight: 300;
-    font-size: 0.8rem;
-    cursor: pointer;
+.modal-container .close-info {
+  align-self: flex-end;
+  background-color: transparent;
+  color: white;
+  box-shadow: none;
+  font-weight: 300;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
-.info-table{
-    width: 100%;
-    display: none;
-    animation: info-opening 0.55s ease forwards;
+.info-table {
+  width: 100%;
+  display: none;
+  animation: info-opening 0.55s ease forwards;
 }
-.t-item{
-    display: flex;
-    flex-direction: row;
-    margin-top: 0.5rem;
-    width: 100%;
-    font-size: 15px;
-    font-weight: 300;
-    justify-content: space-between;
-    align-items: center;
+.t-item {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.5rem;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 300;
+  justify-content: space-between;
+  align-items: center;
 }
-.t-head{
-    font-weight: normal;
+.t-head {
+  font-weight: normal;
 }
 
 section {
@@ -140,78 +308,21 @@ section {
   justify-content: center;
 }
 
-ul {
-  display: flex;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 1rem;
-  padding: 0;
-  margin-left: 1rem;
-  margin-right: 1rem;
+#loading-spinner {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  color: white;
+  display: none;
+  z-index: 100;
 }
 
-li {
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: fit-content;
-  width: 11rem;
-  background-color: #353a46cc;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
+svg {
+  fill: white;
+  animation: loading-spinner 1s ease infinite;
 }
-
-.image-container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-img {
-  width: 8rem;
-  height: 8rem;
-  transform: translate3d(50%, 50%, 0);
-  transition: all ease 0.55s;
-}
-
-#saturn img {
-  transform: translate3d(30%, 30%, 0);
-}
-
-li:hover #saturn img {
-  transform: translate3d(0, 0, 0);
-}
-
-li:hover img {
-  transform: translate3d(0, 0, 0);
-}
-li:hover{
-    background-color: #353a4699;
-}
-
-#loading-spinner{
-    position: absolute;
-    width: 5rem;
-    height: 5rem;
-    color: white;
-    display: none;
-    z-index: 100;
-    
-}
-
-svg{
-    fill: white;
-    animation: loading-spinner 0.55s ease infinite;
-}
-
-
 
 /* keyframes */
-
 
 @keyframes modal-opening {
   0% {
@@ -234,18 +345,94 @@ svg{
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate(50%, -50%)
+    transform: translate(50%, -50%);
   }
 }
 
 @keyframes introTextAnimation {
-    0%{
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-    100%{
-        opacity: 1;
-        transform: translateY(0%);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 
+@keyframes container-in {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 550px;
+  }
+}
+@keyframes text-in {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes button-out {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    display: none;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes texts-out {
+  0% {
+    height: 460px;
+    opacity: 1;
+  }
+  90% {
+    display: none;
+  }
+
+  100% {
+    opacity: 0;
+    height: 0;
+  }
+}
+@keyframes planet-list-in {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 550px;
+  }
+}
+
+@keyframes list-items-in {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+/* test */
+
+.test-div {
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+
+  --_g1: repeating-linear-gradient(90deg, red) repeat-x;
+  background: var(--_g1), 0;
+}

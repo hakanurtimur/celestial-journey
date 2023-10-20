@@ -6,29 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM Planets</title>
     <script type="module" src="objects.js" defer></script>
+    <script type="module" src="texts.js" defer></script>
     <script type="module" src="app.js" defer></script>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400&family=Kanit&family=Tilt+Neon&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400&family=Kanit&family=Tilt+Neon&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="loading-spinner">
-        <p>Flying...</p>
-    </div>
-    <div class="backdrop">
-    </div>
-    <div class="overlay">
-    </div>
-    <div id="info-modal">
-    </div>
     <header>
-      <h1>Hakan's</h1>
-      <h1>Celestial</h1>
-      <h1>Chronicles</h1>
+      <h1 class="intro-text-first"><span>H</span>akan's</h1>
+      <h1 class="intro-text-second"><span>C</span>elestial</h1>
+      <h1 class="intro-text-third"><span>C</span>hronicles</h1>
     </header>
+    <div id="loading-spinner">
+      <p>Flying...</p>
+    </div>
+    <div class="backdrop"></div>
+    <div class="overlay"></div>
+    <div id="info-modal"></div>
+    <div id="about-text-container">
+      <p class="start-paragraphs-unvisible">Welcome, travelers! I'm Hakan, your celestial guide on this extraordinary journey through space. Join me as we navigate the cosmos and explore the wonders of our Solar System in "Hakan's Celestial Chronicles.</p>
+      <p class="start-paragraphs-unvisible">In this app, each planet holds a unique story waiting to be uncovered. From the fiery landscapes of Mercury to the icy mysteries of Neptune, I have documented my personal experiences and observations for each celestial body.</p>
+      <p class="start-paragraphs-unvisible">Feel free to dive into the diaries by clicking on the planet icons. Discover the secrets, beauty, and history that make each stop in our cosmic adventure truly special.</p>
+      <p class="start-paragraphs-unvisible">Are you ready to embark on a stellar voyage? Click on the icons, and let Hakans Celestial Chronicles be your guide to the wonders of the universe. </p>
+      <br />   
+      <br />   
+      <p class="start-paragraphs-unvisible" style="text-align: end;">
+        Look up to the stars, Hakan.
+      </p>
+      <button id="read-chronicles-button" class="start-paragraphs-unvisible">Read Chronicles</button>
+    </div>
+    <div id="starter-buttons">
+      <button class="button-visible">Start Journey</button>
+    </div>
     <section id="planet-container">
-      <ul id="planet-list"></ul>
+      <div class="test-div"></div>
+      <ul id="planet-list" class="planet-list-unvisible"></ul>
     </section>
   </body>
 </html>
